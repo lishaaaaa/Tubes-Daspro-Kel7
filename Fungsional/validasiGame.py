@@ -1,4 +1,4 @@
-def lengthFinder(string):
+def lengthFinder(string):   # Fungsi untuk mengukur length suatu string
     length = 0
     for i in string:
         length += 1
