@@ -1,8 +1,4 @@
-def lengthFinder(string):   # Fungsi untuk mengukur length suatu string
-    length = 0
-    for i in string:
-        length += 1
-    return length
+from csvFuncs import *
 
 
 def isValidName(nama):
@@ -83,12 +79,41 @@ def isValidHarga(price):
 
 def isValidStok(stock):
     if lengthFinder(stock) > 0:
+        for i in range(lengthFinder(stock)):
+            if stock[i] in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_-+=":
+                return False
         if int(stock) >= 0:
             return True
         else:
             return False
     else:
         return False
+
+def IDIdentifier(ID):           # unuk mengubah format id menjadi angka
+    IDResult = 0
+    if ID[1] == "0":
+        if ID[2] == "0":        # maka id pasti satuan
+            IDResult = int(ID[3])
+        else:                   # maka id merupakan puluhan
+            IDResult = int(ID[2] + ID[3])
+    else:
+        IDResult = str(ID[1]+ ID[2] + ID[3])
+    return IDResult
+
+def isGameAlreadyHere(dicek, listgames):
+    same = False
+    for i in range(lengthFinder(listgames)):
+        if (dicek).upper() == listgames[i][1].upper():
+            same = True
+            break
+    return same
+
+
+
+
+
+
+
 
 
 
