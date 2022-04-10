@@ -1,8 +1,10 @@
 # Fungsi yang mengubah data sebuah game pada csv
 from validasiGame import *
+from csvFuncs import *
 
-def ubahGame(listOfGames):   # menerima sebuah csv game dan mengganti kandungannya #TODO
-    # untuk sementara menggunakan array
+fileUsed = csvReader('game.csv')
+
+def ubahGame(listOfGames):   # menerima sebuah csv game dan mengganti kandungannya kecuali stok
     ID = input("Masukkan ID game: ")
     found = False
     index = 0
@@ -41,8 +43,10 @@ def ubahGame(listOfGames):   # menerima sebuah csv game dan mengganti kandungann
 
                 if tempVal4 and tempVal3 and tempVal2 and tempVal1:
                     validGame = True    #bila semua elemen sudah sesuai program lanjut ke editing
+                else:
+                    print("Data tidak sesuai, coba lagi")
 
-            listOfGames[i][1] = tempName
+            listOfGames[i][1] = tempName        # nilai sudah valid, dimasukkan ke csv yang sesuai
             listOfGames[i][2] = tempKategori
             listOfGames[i][3] = tempTahun
             listOfGames[i][4] = tempHarga
@@ -56,20 +60,4 @@ def ubahGame(listOfGames):   # menerima sebuah csv game dan mengganti kandungann
 
 
 
-
-sample_games = [["X" for i in range(5)]for j in range(5)]     # array yg dipake untuk testing sblm punya csv file
-sample_games[0][0] = "ID Game"
-sample_games[0][1] = "Judul Game"
-sample_games[0][2] = "Kategori"
-sample_games[0][3] = "Tahun Rilis"
-sample_games[0][4] = "Harga"
-
-
-sample_games[1][0] = "GAME001"
-sample_games[1][1] = "Valorant"
-sample_games[1][2] = "FPS"
-sample_games[1][3] = "2020"
-sample_games[1][4] = "10000"
-
-
-ubahGame(sample_games)
+ubahGame(fileUsed)
