@@ -1,3 +1,3 @@
-"id;nama;kategori;tahun_rilis;harga;stok"
-"G001;Valorant;FPS;2020;0;1"
-"G002;Elden Ring;RPG;2022;600000;1"
+id;nama;kategori;tahun_rilis;harga;stok
+G001;Valorant;FPS;2020;0;1
+G002;Elden Ring;RPG;2022;600000;1
