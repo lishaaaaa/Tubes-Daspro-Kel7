@@ -109,6 +109,15 @@ def isGameAlreadyHere(dicek, listgames):
     return same
 
 
+def IDFinder(dicek, listgames):
+    index = -999
+    for i in range(lengthFinder(listgames)):
+        if (dicek).upper() == listgames[i][0].upper():
+            index = i
+            break
+    return index
+
+
 
 
 
