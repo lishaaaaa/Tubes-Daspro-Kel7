@@ -27,3 +27,20 @@ def csvReader(filename, delimiter=';'):
             values = splitter(line, delimiter)
             parse += [values]
     return parse
+
+def searcher(dicari, sumber):
+    found = False
+    for i in range(lengthFinder(sumber)):
+        if sumber[i] == dicari:
+            found = True
+            break
+    return found
+
+
+
+def findMax(dicari):
+    max = -9999
+    for i in range(lengthFinder(dicari)):
+        if dicari[i] >= max:
+            max = dicari[i]
+    return max
