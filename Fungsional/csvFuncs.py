@@ -46,9 +46,18 @@ def searcher(dicari, sumber):
 def findMax(dicari):
     max = -9999
     for i in range(lengthFinder(dicari)):
-        if dicari[i] >= max:
-            max = dicari[i]
+        if (int(dicari[i]) >= int(max)):
+            max = int(dicari[i])
     return max
+
+def findMin(dicari):
+    min = 9999
+    for i in range(lengthFinder(dicari)):
+        if (int(dicari[i]) <= int(min)):
+            min = int(dicari[i])
+    return min
+
+
 
 
 
