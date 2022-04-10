@@ -1,3 +1,6 @@
+# untuk menggunakan split function berikut, masukkan parameter data yang akan displit dan delimiter (pemisah)
+# panjang data dapat ditentukan dengan menggunakan fungsi lengthFinder
+
 import os
 
 def lengthFinder(string):           # fungsi untuk mencari panjang suatu string (seperti len())
@@ -6,11 +9,12 @@ def lengthFinder(string):           # fungsi untuk mencari panjang suatu string 
         length += 1
     return length
 
+
 def splitter(string, delimiter):  # pengganti fungsi split() karena gk boleh make split
     split_result = []
     temp = ''
     for x in string:
-        if x == delimiter:
+        if x == delimiter or x=="\n":
             split_result += [temp]
             temp = ''
         else:
@@ -18,14 +22,15 @@ def splitter(string, delimiter):  # pengganti fungsi split() karena gk boleh mak
     if temp:
         split_result += [temp]
     return split_result
-  
-  
+
+
 def csvReader(filename, delimiter=';'):
     with open(filename) as file:
         parse = []
         for line in file:
             values = splitter(line, delimiter)
-            parse += [values]
+            if values != ['']:
+                parse += [values]
     return parse
 
 def searcher(dicari, sumber):
@@ -44,3 +49,13 @@ def findMax(dicari):
         if dicari[i] >= max:
             max = dicari[i]
     return max
+
+
+
+
+
+
+
+
+
+
